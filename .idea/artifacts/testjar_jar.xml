@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact name="testjar:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/testjar_jar</output-path>
+    <root id="root">
+      <element id="archive" name="testjar.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="testjar" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="file-copy" path="$PROJECT_DIR$/lib/mysql-connector-java-5.1.27.jar" />
+      </element>
+    </root>
+  </artifact>
+</component>

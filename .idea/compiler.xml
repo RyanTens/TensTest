@@ -14,5 +14,8 @@
         <module name="statistics" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="PGLoader" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

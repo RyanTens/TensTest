@@ -21,6 +21,11 @@ public class ThreadPoolDemo2 {
             for (int i = 0; i < 8; i++) {
                 threadPoolExecutor.execute(() -> {
                     System.out.println(Thread.currentThread().getName() + "办理业务");
+                    try {
+                        TimeUnit.SECONDS.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 });
             }
         } catch (Exception e) {

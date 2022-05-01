@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Spring5" />
+        <module name="MultiThreadRead" />
         <module name="LearnJUC" />
         <module name="PluginDev" />
-        <module name="Spring5" />
         <module name="GetJarPath" />
         <module name="LearnNIO" />
         <module name="statistics" />

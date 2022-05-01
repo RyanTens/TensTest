@@ -27,6 +27,7 @@
         <module>Spring5</module>
         <module>PluginDev</module>
         <module>statistics</module>
+        <module>MultiThreadRead</module>
     </modules>
     <dependencies>
         <dependency>

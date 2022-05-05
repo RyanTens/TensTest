@@ -28,6 +28,7 @@
         <module>PluginDev</module>
         <module>statistics</module>
         <module>MultiThreadRead</module>
+        <module>LearnNetty</module>
     </modules>
     <dependencies>
         <dependency>

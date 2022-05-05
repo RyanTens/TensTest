@@ -6,14 +6,14 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 
-public class FileChannelDemo1 {
+public class FileChannelDemo {
     public static void main(String[] args) throws IOException {
         //创建FileChannel
         RandomAccessFile aFile = new RandomAccessFile("D:\\tmp\\g2021-01-01_b9025cb9458e41bf954772071dc490c7", "rw");
         FileChannel channel = aFile.getChannel();
 
         //创建Buffer
-        ByteBuffer buffer = ByteBuffer.allocate(1024 * 1024);
+        ByteBuffer buffer = ByteBuffer.allocate(8 * 1024);
 
         //读取数据到Buffer
         int bytesRead = channel.read(buffer);

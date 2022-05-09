@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Spring5" />
         <module name="MultiThreadRead" />
+        <module name="LeranRMI" />
         <module name="LearnJUC" />
         <module name="PluginDev" />
         <module name="GetJarPath" />

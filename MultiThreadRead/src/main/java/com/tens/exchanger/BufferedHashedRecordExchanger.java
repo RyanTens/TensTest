@@ -97,7 +97,7 @@ public class BufferedHashedRecordExchanger {
     }
 
     private void receive() {
-        this.channel.pullAll(this.buffer);;
+        this.channel.pullAll(this.buffer);
         this.bufferIndex = 0;
         this.bufferSize = this.buffer.size();
     }

@@ -9,7 +9,7 @@ import java.util.Properties;
 public class Start {
     public static void main(String[] args) {
         Configuration configuration = new Configuration("test1234");
-        configuration.setFilePath("/tmp");
+        configuration.setFilePath("/tmp/mockdata");
         Map<String, String> nodeMapping = configuration.getNodeMapping();
         nodeMapping.put("node1", "mnode2");
         nodeMapping.put("node2", "mnode3");

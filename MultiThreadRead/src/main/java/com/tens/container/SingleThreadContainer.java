@@ -107,25 +107,25 @@ public class SingleThreadContainer {
 
         ExecutorService readerExecutors = Executors.newFixedThreadPool(5);
 
-//        TxtFileReader txtFileReader = new TxtFileReader(fileList, configuration);
-//        txtFileReader.startRead(readerSender);
-        CountDownLatch fileCountDownLatch = new CountDownLatch(fileList.size());
-        long start = System.currentTimeMillis();
-        for (String f:fileList) {
-            readerExecutors.execute(() -> {
-                TxtFileReader txtFileReader = new TxtFileReader(fileList, configuration);
-                txtFileReader.startRead(f, new BufferedRawDataExchanger(rawDataChannel, configuration), fileCountDownLatch);
-            });
-        }
+        TxtFileReader txtFileReader = new TxtFileReader(fileList, configuration);
+        txtFileReader.startRead(readerSender);
+//        CountDownLatch fileCountDownLatch = new CountDownLatch(fileList.size());
+//        long start = System.currentTimeMillis();
+//        for (String f:fileList) {
+//            readerExecutors.execute(() -> {
+//                TxtFileReader txtFileReader = new TxtFileReader(fileList, configuration);
+//                txtFileReader.startRead(f, new BufferedRawDataExchanger(rawDataChannel, configuration), fileCountDownLatch);
+//            });
+//        }
 
 
         transformExecutors.shutdown();
         writerExecutors.shutdown();
         readerExecutors.shutdown();
 
-        fileCountDownLatch.await();
-        long end = System.currentTimeMillis();
-        CounterUtil.getInstance().addTime(end - start);
+//        fileCountDownLatch.await();
+//        long end = System.currentTimeMillis();
+//        CounterUtil.getInstance().addTime(end - start);
         rawDataChannel.pushTerminate();
 
         countDownLatch.await();
@@ -137,10 +137,10 @@ public class SingleThreadContainer {
         while (!isFinish) {
             if (transformExecutors.isTerminated() && writerExecutors.isTerminated()) {
                 isFinish = true;
-                long size = CounterUtil.getInstance().getSize().get();
-                long time = CounterUtil.getInstance().getTime().get();
-                double speed = size / 1024 / 1024 / (time / 1000.0);
-                LOG.info(String.format("read speed is [%s]M/s", speed));
+//                long size = CounterUtil.getInstance().getSize().get();
+//                long time = CounterUtil.getInstance().getTime().get();
+//                double speed = size / 1024 / 1024 / (time / 1000.0);
+//                LOG.info(String.format("read speed is [%s]M/s", speed));
                 LOG.info("jobs done!!");
             }
             try {

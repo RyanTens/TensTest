@@ -14,7 +14,7 @@ public class CountDownLatchDemo {
             }, String.valueOf(i)).start();
         }
 
-        //zuse
+        //阻塞
         countDownLatch.await();
 
         System.out.println(Thread.currentThread().getName() + "班长锁门了！");

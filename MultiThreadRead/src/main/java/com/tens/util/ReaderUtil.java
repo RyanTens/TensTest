@@ -33,8 +33,6 @@ public class ReaderUtil {
         } finally {
             IOUtils.closeQuietly(reader);
         }
-
-
     }
 
     private static void doReadFromStream(BufferedReader reader,
@@ -53,14 +51,12 @@ public class ReaderUtil {
             csvReader = new CsvReader(reader);
             csvReader.setDelimiter(fieldDelimiter);
             csvReader.setSafetySwitch(false);
-
+            LOG.info(String.format("CsvReader使用默认值[%s]", JSON.toJSONString(csvReader)));
             String[] parseRows;
             while ((parseRows = ReaderUtil.splitBufferedReader(csvReader)) != null) {
                 readCount++;
                 ReaderUtil.transportOneRecord(recordSender, parseRows);
             }
-            LOG.info(String.format("CsvReader使用默认值[%s]", JSON.toJSONString(csvReader)));
-
 
         } catch (IOException e) {
             e.printStackTrace();

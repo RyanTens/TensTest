@@ -31,12 +31,12 @@ public class RawDataTransformer {
         this.countDownLatch = countDownLatch;
     }
 
-    public void startTransform(BufferedRawDataExchanger reciever) {
+    public void startTransform(BufferedRawDataExchanger receiver) {
         int distributeIndex = configuration.getDistributeIndex();
         int partitionSize = channelGroup.getHashSize();
-        generateRecordSender(channelGroup);
+        generateRecordSender();
         String[] rowData;
-        while ((rowData = reciever.getFromChannel()) != null && rowData.length != 0) {
+        while ((rowData = receiver.getFromChannel()) != null && rowData.length != 0) {
 
             rowData[6] = rowData[6].substring(0,3);
             Integer hashcode = PartitionByJavaHash.calculate(rowData[distributeIndex], partitionSize);
@@ -44,7 +44,7 @@ public class RawDataTransformer {
             mirrirRecordSenders.get(hashcode).sendToChannel(rowData);
         }
         flush();
-        reciever.terminate();
+        receiver.terminate();
         LOG.info("tramsformer done!");
         countDownLatch.countDown();
     }
@@ -56,7 +56,7 @@ public class RawDataTransformer {
         }
     }
 
-    private void generateRecordSender(RecordChannelGroup channelGroup) {
+    private void generateRecordSender() {
         for (int i = 0; i < channelGroup.getHashSize(); i++) {
             recordSenders.put(i, new BufferedRawDataExchanger(channelGroup.getChannel(i), configuration));
             mirrirRecordSenders.put(i, new BufferedRawDataExchanger(channelGroup.getMirrorChannel(i), configuration));

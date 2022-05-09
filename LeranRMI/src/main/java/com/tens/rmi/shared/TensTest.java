@@ -8,4 +8,5 @@ public interface TensTest extends Remote {
 
     String doRead(ArrayList<String> files) throws RemoteException;
 
+    String ping(String ping) throws RemoteException;
 }

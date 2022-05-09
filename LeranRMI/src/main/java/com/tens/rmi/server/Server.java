@@ -20,7 +20,7 @@ public class Server {
         System.out.println("create tens test remote service");
         TensTestService tensTest = new TensTestService();
         TensTest skeleton = (TensTest) UnicastRemoteObject.exportObject(tensTest, 0);
-        Registry registry = LocateRegistry.createRegistry(1999);
+        Registry registry = LocateRegistry.createRegistry(9393);
         registry.rebind(TensTest.class.getSimpleName(), skeleton);
     }
 }

@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Spring5" />
+        <module name="SpringDemo" />
         <module name="MultiThreadRead" />
         <module name="LeranRMI" />
         <module name="LearnJUC" />
@@ -19,5 +20,10 @@
     <bytecodeTargetLevel>
       <module name="PGLoader" target="8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SpringDemo" options="-parameters" />
+    </option>
   </component>
 </project>

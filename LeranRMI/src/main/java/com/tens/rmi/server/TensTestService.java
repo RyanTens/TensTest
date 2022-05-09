@@ -16,4 +16,12 @@ public class TensTestService implements TensTest {
 
         return sb.toString();
     }
+
+    @Override
+    public String ping(String ping) throws RemoteException {
+        if (ping.equals("ping")) {
+            return "pong";
+        }
+        return "undefined";
+    }
 }

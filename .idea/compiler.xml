@@ -8,13 +8,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Spring5" />
         <module name="SpringDemo" />
+        <module name="LearnGooglGuava" />
         <module name="MultiThreadRead" />
         <module name="LeranRMI" />
-        <module name="LearnJUC" />
         <module name="PluginDev" />
+        <module name="LearnJUC" />
+        <module name="LearnNetty" />
         <module name="GetJarPath" />
         <module name="LearnNIO" />
         <module name="statistics" />
+        <module name="LeetCode" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

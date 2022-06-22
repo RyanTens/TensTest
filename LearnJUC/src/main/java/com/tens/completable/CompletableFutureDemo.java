@@ -13,7 +13,7 @@ public class CompletableFutureDemo {
 
         CompletableFuture<Integer> completableFuture2 = CompletableFuture.supplyAsync(() -> {
             System.out.println(Thread.currentThread().getName() + "completableFuture2");
-            int i = 1 / 0;
+            int i = 1 / 1;
             return 200;
         });
 
